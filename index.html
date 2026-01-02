@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +26,7 @@
             background: white;
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
@@ -67,7 +68,7 @@
         .matrix-wrapper {
             overflow-x: auto;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         table {
@@ -76,7 +77,8 @@
             background: white;
         }
 
-        th, td {
+        th,
+        td {
             padding: 12px 8px;
             text-align: center;
             border: 1px solid #e0e0e0;
@@ -168,252 +170,362 @@
             background: #b3e5fc;
             color: #01579b;
         }
-         .flow-chart-section {
-    margin: 40px 0;
-    padding: 25px;
-    background: #ffffff;
-    border-radius: 12px;
-        
-    border: 2px solid #e0e0e0;
-}
 
-.flow-chart-image-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: auto;
-}
+        .flow-chart-section {
+            margin: 40px 0;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 12px;
 
-.flow-chart-image-wrapper img {
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
 
-     max-height: 500px;
+        .flow-chart-image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+        }
 
-}
+        .flow-chart-image-wrapper img {
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
 
-.flow-chart-caption {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 0.85em;
-    color: #666;
-}
+            max-height: 500px;
+
+        }
+
+        .flow-chart-caption {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.85em;
+            color: #666;
+        }
     </style>
 </head>
 
 <body>
-<div class="container">
-    <h1>SMC Private Flow Steps Dependency Matrix</h1>
-    <p class="subtitle">
-        When a step in the left column changes, it affects the steps marked in its row
-    </p>
+    <div class="container">
+        <h1>SMC Private Flow Steps Dependency Matrix</h1>
+        <p class="subtitle">
+            When a step in the left column changes, it affects the steps marked in its row
+        </p>
 
-    <!-- Legend -->
-    <div class="legend">
-        <div class="legend-item"><div class="legend-box resets"></div>✗ Always Resets</div>
-        <div class="legend-item"><div class="legend-box no-reset"></div>✓ No Reset</div>
-        <div class="legend-item"><div class="legend-box conditional"></div>◐ Conditional</div>
-        <div class="legend-item"><div class="legend-box special-mode3"></div>★ Mode 3 Special</div>
-        <div class="legend-item"><div class="legend-box self"></div>— Self</div>
-    </div>
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box resets"></div>✗ Always Resets
+            </div>
+            <div class="legend-item">
+                <div class="legend-box no-reset"></div>✓ No Reset
+            </div>
+            <div class="legend-item">
+                <div class="legend-box conditional"></div>◐ Conditional
+            </div>
+            <div class="legend-item">
+                <div class="legend-box special-mode3"></div>★ Mode 3 Special
+            </div>
+            <div class="legend-item">
+                <div class="legend-box self"></div>— Self
+            </div>
+        </div>
 
-    <!-- Matrix -->
-    <div class="matrix-wrapper">
-        <table>
-            <thead>
-            <tr>
-                <th>Step Changes →<br/>Affects ↓</th>
-                <th>Location</th>
-                <th>Make</th>
-                <th>Model</th>
-                <th>Year</th>
-                <th>Transmission</th>
-                <th>Fuel Type</th>
-                <th>Trims</th>
-                <th>Vehicle Type</th>
-                <th>Specs</th>
-                <th>Color</th>
-                <th>KmsDriven</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Add. Info</th>
-                <th>Images</th>
-            </tr>
-            </thead>
+        <!-- Matrix -->
+        <div class="matrix-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step Changes →<br />Affects ↓</th>
+                        <th>Location</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Transmission</th>
+                        <th>Fuel Type</th>
+                        <th>Trims</th>
+                        <th>Vehicle Type</th>
+                        <th>Specs</th>
+                        <th>Color</th>
+                        <th>KmsDriven</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Add. Info</th>
+                        <th>Images</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-            <tr>
-                <td class="row-header">Location</td>
-                <td class="self">—</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-            </tr>
+                <tbody>
+                    <tr>
+                        <td class="row-header">Location</td>
+                        <td class="self">—</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Make</td>
-                <td class="no-reset">✓</td><td class="self">—</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="resets">✗</td><td class="resets">✗</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Make</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Model</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="self">—</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="resets">✗</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Model</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Year</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="self">—</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Year</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Transmission</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="self">—</td>
-                <td class="resets">✗</td><td class="resets">✗</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Transmission</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Fuel Type</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="self">—</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="resets">✗</td>
-                <td class="resets">✗</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Fuel Type</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Trims</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="self" title="Internal trim refresh occurs when a different trim is selected">—</td>
-                <td class="conditional">◐</td>
-                <td class="conditional">◐</td>
-                <td class="resets">✗</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="resets">✗</td><td class="resets">✗</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Trims</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self" title="Internal trim refresh occurs when a different trim is selected">—</td>
+                        <td class="conditional">◐</td>
+                        <td class="conditional">◐</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="resets">✗</td>
+                        <td class="resets">✗</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Vehicle Type</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="self">—</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Vehicle Type</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Specs</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="self">—</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Specs</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Color</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="self">—</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">Color</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">KmsDriven</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td>
-                <td class="self">—</td>
-                <td class="no-reset">✓</td>
-                <td class="special-mode3">★</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-            </tr>
+                    <tr>
+                        <td class="row-header">KmsDriven</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="no-reset">✓</td>
+                        <td class="special-mode3">★</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
 
-            <tr>
-                <td class="row-header">Description</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td>
-                <td class="self">—</td>
-                <td class="no-reset">✓</td><td class="no-reset">✓</td><td class="no-reset">✓</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-<!-- Flow Chart Image Section -->
-<div class="flow-chart-section">
-    <h3 style="text-align:center;margin-bottom:20px">Flow Chart</h3>
+                    <tr>
+                        <td class="row-header">Description</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="self">—</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                        <td class="no-reset">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Flow Chart Image Section -->
+        <div class="flow-chart-section">
+            <h3 style="text-align:center;margin-bottom:20px">Flow Chart</h3>
 
-    <div class="flow-chart-image-wrapper">
-        <img 
-            src="./SMC Private flow steps dependency flow chart.png"
-            alt="SMC VIP Flow Chart"
-            loading="lazy"
-        />
-    </div>
-</div>
-    <!-- Notes -->
-    <div class="notes">
-        <h3>Important Notes</h3>
-        <ul>
-            <li>
-                <strong>◐ Trims – Conditional Logic:</strong>
-                <ul>
-                    <li>Edit Flow + Same Trim → No reset</li>
-                    <li>Different Trim → Vehicle Type, Specs, Color, Price, Additional Info reset</li>
-                    <li>Complete Trim Data → Vehicle Type & Specs auto-populated</li>
-                    <li>Partial Data → Vehicle Type set, Specs must be selected</li>
-                </ul>
-            </li>
+            <div class="flow-chart-image-wrapper">
+                <img src="./SMC Private flow steps dependency flow chart.png" alt="SMC Private Flow Chart" loading="lazy" />
+            </div>
+        </div>
+        <!-- Notes -->
+        <div class="notes">
+            <h3>Important Notes</h3>
+            <ul>
+                <li>
+                    <strong>◐ Trims – Conditional Logic:</strong>
+                    <ul>
+                        <li>Edit Flow + Same Trim → No reset</li>
+                        <li>Different Trim → Vehicle Type, Specs, Color, Price, Additional Info reset</li>
+                        <li>Complete Trim Data → Vehicle Type & Specs auto-populated</li>
+                        <li>Partial Data → Vehicle Type set, Specs must be selected</li>
+                    </ul>
+                </li>
 
-            <li>
-                <strong>★ KmsDriven → Price:</strong>
-                <span class="mode-tag mode3">Live Ad Edit</span>
-                <ul>
-                    <li>Same KMs → Price preserved</li>
-                    <li>Different KMs → Price fully reset</li>
-                    <li>Other modes → Price always reset</li>
-                </ul>
-            </li>
+                <li>
+                    <strong>★ KmsDriven → Price:</strong>
+                    <span class="mode-tag mode3">Live Ad Edit</span>
+                    <ul>
+                        <li>Same KMs → Price preserved</li>
+                        <li>Different KMs → Price fully reset</li>
+                        <li>Other modes → Price always reset</li>
+                    </ul>
+                </li>
 
-            <li>
-                <strong>Additional Information:</strong>
-                Cylinders, Seats, Features reset together with Price
-            </li>
+                <li>
+                    <strong>Additional Information:</strong>
+                    Cylinders, Seats, Features reset together with Price
+                </li>
 
-            <li>
-                <strong>Same Value Rule:</strong>
-                Re-selecting the same value does not cause resets (except Trims in edit mode)
-            </li>
+                <li>
+                    <strong>Same Value Rule:</strong>
+                    Re-selecting the same value does not cause resets (except Trims in edit mode)
+                </li>
 
-            <li>
+                <li>
